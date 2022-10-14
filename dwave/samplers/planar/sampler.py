@@ -76,6 +76,9 @@ class PlanarGraphSampler(dimod.Sampler, dimod.Initialized):
 
         if pos is None:
             pos = {}
+            for v in bqm.variables:
+                # TODO: Ensure that it's sane to put all the vertices at the origin
+                pos[v] = (0,0)
 
         if len(bqm) < 3:
             raise ValueError("The provided BQM must have at least three variables")
