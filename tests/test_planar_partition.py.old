@@ -42,7 +42,6 @@ def _logsqrtdet(K):
 
     """
     # LU decomposition
-    # noinspection PyTupleAssignmentBalance
     _, U = scipy.linalg.lu(K, permute_l=True)
 
     return .5 * np.sum(np.log(np.absolute(np.diag(U))))
