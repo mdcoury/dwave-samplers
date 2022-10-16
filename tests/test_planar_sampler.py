@@ -62,9 +62,7 @@ class TestGroundStateBQM(unittest.TestCase):
                 bqm.add_interaction((x, y), (x + 1, y + 1), 1)
                 bqm.add_interaction((x, y), (x, y + 1), 1)
 
-        def pos(v): return v
-
-        sample = PlanarGraphSampler().sample(bqm, pos)
+        sample = PlanarGraphSampler().sample(bqm)
 
         self.assertEqual(set(sample.first.sample.values()), {-1, +1})
         self.assertDictEqual(
@@ -111,9 +109,7 @@ class TestGroundStateBQM(unittest.TestCase):
                 bqm.add_interaction((x, y), (x + 1, y + 1), -1)
                 bqm.add_interaction((x, y), (x, y + 1), -1)
 
-        def pos(v): return v
-
-        sample = PlanarGraphSampler().sample(bqm, pos)
+        sample = PlanarGraphSampler().sample(bqm)
 
         # should all be the same
         self.assertEqual(set(sample.first.sample.values()), {-1})
